@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class twoSums {
 
     /*
@@ -5,18 +7,26 @@ public class twoSums {
     * LeetCode challenge Link: https://leetcode.com/problems/two-sum/
     *
     * */
-    public int[] twoSum(int[] nums, int target) {
+    public static int[] twoSum(int[] nums, int target) {
         int[] result = new int[2];
         for(int i=0; i<nums.length - 1; i++){
-            if(nums[i] < target){
-                int sum  = nums[i] + nums[i+1];
+            System.out.println("nums[i] = " + nums[i]);
+            for(int j=i+1;j<=nums.length - 1; j++){
+
+                int sum  = nums[i] + nums[j];
                 if (sum == target){
                     result[0] = i;
-                    result[1] = i+1;
+                    result[1] = j;
                 }
-            }
-        }
 
+            }
+
+        }
         return result;
+
+    }
+
+    public static void main(String[] args) {
+        twoSum(new int[]{3,2,3}, 6);
     }
 }
